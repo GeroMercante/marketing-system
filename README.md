@@ -6,10 +6,13 @@
 - **Spring Security 6**
 
 ## 📌 Descargar el proyecto
-
-- por https
 ```
 git clone https://github.com/GeroMercante/marketing-system.git
+```
+
+## 📌 Documentación de la aplicación
+```
+https://pub-9ca2f14a957c40cc8370626a35fa2458.r2.dev/Dise%C3%B1o%20de%20sistemas%20-%20Ger%C3%B3nimo%20Mercante.postman_collection.json
 ```
 
 ## 🚀 Instalación y configuración
