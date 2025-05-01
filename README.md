@@ -51,8 +51,6 @@ Puedes cambiar estas propiedades en el `application.properties`
 - `dev`
 - `prod`
 
-Estos scripts están en el package.json y cargan las configuraciones adecuadas desde angular.json.
-
 ## 🌍 Internacionalización (i18n)
 
 El sistema está preparado para múltiples idiomas
