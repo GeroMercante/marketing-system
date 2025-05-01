@@ -34,11 +34,8 @@ git clone https://github.com/GeroMercante/marketing-system.git
 
 ### Si deseas levantarlo con docker-compose:
 ```
+docker-compose build
 docker-compose up -d
-```
-ó he creado un script que también hace el build y levanta el proyecto con docker-compose
-```
-./build_and_run.sh
 ```
 
 ## 🏗️ Levantar el proyecto en distintos entornos

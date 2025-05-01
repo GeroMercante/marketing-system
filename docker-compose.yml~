@@ -10,7 +10,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${DB_NAME}?createDatabaseIfNotExist=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: ${DB_USER_NAME}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
-      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_HOST: rabbitmq_service
       SPRING_RABBITMQ_PORT: 5672
       MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: health,info,metrics,prometheus
       MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED: 'true'
@@ -51,9 +51,9 @@ services:
     networks:
       - marketing_network
 
-  rabbitmq:
+  rabbitmq_service:
     image: rabbitmq:4.0-rc-management
-    container_name: rabbitmq
+    container_name: rabbitmq_service
     ports:
       - "5672:5672"
       - "15672:15672"

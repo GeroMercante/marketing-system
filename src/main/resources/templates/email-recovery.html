@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperación de Cuenta</title>
+</head>
+<body style="background-color:#f4f4f4; padding:20px; font-family:Arial, sans-serif;">
+<center>
+    <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
+        <tr>
+            <td align="center" bgcolor="#27b674" style="padding:20px; color:#ffffff; font-size:22px; font-weight:bold; border-radius:8px 8px 0 0;">
+                Recuperación de Cuenta
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="padding:20px; font-size:16px; color:#333;">
+                <p>Hola <strong th:text="${nombre}">Usuario</strong>,</p>
+                <p>Has solicitado recuperar el acceso a tu cuenta. Usa el siguiente código para restablecer tu contraseña:</p>
+                <table cellpadding="10" cellspacing="0" border="0" style="margin: 10px auto; border: 2px dashed #27b674; border-radius:5px;">
+                    <tr>
+                        <td align="center" style="font-size:20px; font-weight:bold; color:#27b674;">
+                            <span th:text="${codigo}">XXXXXX</span>
+                        </td>
+                    </tr>
+                </table>
+                <p>Este código es temporal y caducará en unos minutos. No lo compartas con nadie.</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="padding:15px; font-size:12px; color:gray;">
+                <p>Este es un correo automático, por favor no responder.</p>
+                <small>Si recibiste este correo por error, por favor elimínalo.</small>
+            </td>
+        </tr>
+    </table>
+</center>
+</body>
+</html>
