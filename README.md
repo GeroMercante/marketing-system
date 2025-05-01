@@ -9,12 +9,7 @@
 
 - por https
 ```
-git clone https://gitlab.com/geronimo.mercante-davinci/marketing-system.git
-```
-
-- por ssh
-```
-git clone git@gitlab.com:geronimo.mercante-davinci/marketing-system.git
+git clone [https://gitlab.com/geronimo.mercante-davinci/marketing-system.git](https://github.com/GeroMercante/marketing-system.git)
 ```
 
 ## 🚀 Instalación y configuración
