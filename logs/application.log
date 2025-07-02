@@ -1,0 +1,22 @@
+2025-07-02 11:05:49 ERROR [http-nio-8080-exec-9] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: La fuente de datos no existe.
+2025-07-02 11:05:49 WARN  [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: La fuente de datos no existe.]
+2025-07-02 11:38:09 ERROR [http-nio-8080-exec-10] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: Ya existe una fuente de datos con ese nombre.
+2025-07-02 11:38:09 WARN  [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: Ya existe una fuente de datos con ese nombre.]
+2025-07-02 11:39:03 ERROR [http-nio-8080-exec-4] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: La API Key es requerida para este tipo de autenticación.
+2025-07-02 11:39:03 WARN  [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: La API Key es requerida para este tipo de autenticación.]
+2025-07-02 11:40:34 ERROR [http-nio-8080-exec-7] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: El Bearer Token es requerido para este tipo de autenticación.
+2025-07-02 11:40:34 WARN  [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: El Bearer Token es requerido para este tipo de autenticación.]
+2025-07-02 11:41:20 ERROR [http-nio-8080-exec-6] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: El nombre de usuario es requerido para Basic Auth.
+2025-07-02 11:41:20 WARN  [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: El nombre de usuario es requerido para Basic Auth.]
+2025-07-02 11:42:41 ERROR [http-nio-8080-exec-8] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: La contraseña es requerida para Basic Auth.
+2025-07-02 11:42:41 WARN  [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: La contraseña es requerida para Basic Auth.]
+2025-07-02 11:43:21 ERROR [http-nio-8080-exec-10] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: La contraseña debe tener al menos 6 caracteres.
+2025-07-02 11:43:21 WARN  [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: La contraseña debe tener al menos 6 caracteres.]
+2025-07-02 11:43:45 ERROR [http-nio-8080-exec-4] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: La contraseña debe tener al menos 6 caracteres.
+2025-07-02 11:43:45 WARN  [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: La contraseña debe tener al menos 6 caracteres.]
+2025-07-02 11:43:54 ERROR [http-nio-8080-exec-7] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: El nombre de usuario debe tener al menos 3 caracteres.
+2025-07-02 11:43:54 WARN  [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: El nombre de usuario debe tener al menos 3 caracteres.]
+2025-07-02 11:45:05 ERROR [http-nio-8080-exec-2] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: El nombre de usuario debe tener al menos 3 caracteres.
+2025-07-02 11:45:05 WARN  [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: El nombre de usuario debe tener al menos 3 caracteres.]
+2025-07-02 11:45:45 ERROR [http-nio-8080-exec-10] d.g.m.i.e.RestControllerExceptionHandler : Error en recolección de datos: La fuente de datos no existe.
+2025-07-02 11:45:45 WARN  [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.davinci.geromercante.marketing.infrastructure.exception.DataCollectionException: La fuente de datos no existe.]

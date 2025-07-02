@@ -39,12 +39,20 @@ public class RestControllerExceptionHandler {
             apiResponse.setMessage(apiException.getMessage());
 
             return new ResponseEntity<>(apiResponse, apiException.getStatus());
+        } else if (e instanceof DataCollectionException dataCollectionException) {
+            log.error("Error en recolección de datos: {}", dataCollectionException.getMessage());
+            ApiResponseErrorDTO apiResponse = new ApiResponseErrorDTO();
+            apiResponse.setCode(dataCollectionException.getErrorCode().getCode());
+            apiResponse.setStatus(HttpStatus.BAD_REQUEST);
+            apiResponse.setMessage(dataCollectionException.getMessage());
+
+            return new ResponseEntity<>(apiResponse, apiResponse.getStatus());
         } else {
             log.error("Excepción no contemplada: {}", e.getMessage());
             ApiResponseErrorDTO apiResponse = new ApiResponseErrorDTO();
             apiResponse.setCode(ErrorCodeResponse.UNHANDLE.getCode());
             apiResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-            apiResponse.setMessage(e.getMessage());
+            apiResponse.setMessage(messageUtil.getMessage("unhandle-error"));
 
             return new ResponseEntity<>(apiResponse, apiResponse.getStatus());
         }
