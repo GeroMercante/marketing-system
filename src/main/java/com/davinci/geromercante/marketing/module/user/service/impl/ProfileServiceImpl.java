@@ -22,8 +22,8 @@ public class ProfileServiceImpl extends BaseService implements ProfileService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProfileDetailDTO> getMeProfiles(Long clientId) {
-        List<Profile> profileList = profileManager.getMeProfiles(clientId);
+    public List<ProfileDetailDTO> getMeProfiles() {
+        List<Profile> profileList = profileManager.getMeProfiles();
         return this.convertToDto(profileList, ProfileDetailDTO.class);
     }
 
@@ -41,15 +41,15 @@ public class ProfileServiceImpl extends BaseService implements ProfileService {
 
     @Override
     @Transactional
-    public ProfileDetailDTO createProfile(ProfileDTO dto, Long clientId) throws MarketingException {
-        Profile profile = profileManager.saveProfile(dto, clientId);
+    public ProfileDetailDTO createProfile(ProfileDTO dto) throws MarketingException {
+        Profile profile = profileManager.saveProfile(dto);
         return this.convertToDto(profile, ProfileDetailDTO.class);
     }
 
     @Override
     @Transactional
-    public ProfileDetailDTO updateProfile(Long profileId, ProfileDTO dto, Long clientId) throws MarketingException {
-        Profile profile = profileManager.updateProfile(profileId, dto, clientId);
+    public ProfileDetailDTO updateProfile(Long profileId, ProfileDTO dto) throws MarketingException {
+        Profile profile = profileManager.updateProfile(profileId, dto);
         return this.convertToDto(profile, ProfileDetailDTO.class);
     }
 

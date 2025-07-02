@@ -25,7 +25,7 @@ public class ProfileManager {
     private final ProfileRepository profileRepository;
     private final MessageUtil messageUtil;
 
-    public List<Profile> getMeProfiles(Long clientId) {
+    public List<Profile> getMeProfiles() {
         return this.profileRepository.findAll();
     }
 
@@ -34,12 +34,12 @@ public class ProfileManager {
                 .orElseThrow(() -> new MarketingException(messageUtil.getMessage("profile.not.found")));
     }
 
-    public Profile saveProfile(ProfileDTO profileDTO, Long clientId) throws MarketingException {
-        return createOrUpdateProfile(null, profileDTO, clientId);
+    public Profile saveProfile(ProfileDTO profileDTO) throws MarketingException {
+        return createOrUpdateProfile(null, profileDTO);
     }
 
-    public Profile updateProfile(Long profileId, ProfileDTO dto, Long clientId) throws MarketingException {
-        return createOrUpdateProfile(profileId, dto, clientId);
+    public Profile updateProfile(Long profileId, ProfileDTO dto) throws MarketingException {
+        return createOrUpdateProfile(profileId, dto);
     }
 
     public void deleteProfile(Long profileID) throws MarketingException {
@@ -58,7 +58,7 @@ public class ProfileManager {
                 .toList();
     }
 
-    private Profile createOrUpdateProfile(Long profileId, ProfileDTO dto, Long clientId) throws MarketingException {
+    private Profile createOrUpdateProfile(Long profileId, ProfileDTO dto) throws MarketingException {
         Profile profile = (profileId == null) ? new Profile() : getProfileStrict(profileId);
 
         if (profileId != null) {

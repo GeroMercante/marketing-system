@@ -18,6 +18,38 @@ services:
     networks:
       - marketing_network
 
+  mongodb:
+    image: mongo:6.0
+    container_name: mongo_mkt
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB}
+    ports:
+      - '${MONGO_EXTERNAL_PORT}:27017'
+    volumes:
+      - mongodb_data:/data/db
+    extra_hosts:
+      - "mongo:127.0.0.1"
+    networks:
+      - marketing_network
+
+  mongo-express:
+    image: mongo-express:1.0.0-alpha.4
+    container_name: mongo-express_mkt
+    restart: always
+    ports:
+      - '${MONGO_EXPRESS_EXTERNAL_PORT}:8081'
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_SERVER: mongo
+    depends_on:
+      - mongodb
+    networks:
+      - marketing_network
+
   mysql:
     image: mysql:8.0.33
     container_name: marketing_db
@@ -70,6 +102,7 @@ volumes:
   rabbitmq_data:
   rabbitmq_log:
   grafana-storage:
+  mongodb_data:
 
 networks:
   marketing_network:

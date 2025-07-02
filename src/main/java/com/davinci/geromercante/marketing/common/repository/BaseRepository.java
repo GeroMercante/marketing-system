@@ -23,26 +23,26 @@ public interface BaseRepository<T extends BaseEntity, I> extends JpaRepository<T
     @Override
     @NonNull
     @Query("select e from #{#entityName} e where e.deleted = false and e.id = ?1")
-    Optional<T> findById(I id);
+    Optional<T> findById(@NonNull I id);
 
     @Override
     @NonNull
     @Query("select e from #{#entityName} e where e.deleted = false and e.id in :ids")
-    List<T> findAllById(@Param("ids") Iterable<I> ids);
+    List<T> findAllById(@Param("ids") @NonNull Iterable<I> ids);
 
     @Override
-    default void delete(T entity) {
+    default void delete(@NonNull T entity) {
         entity.setDeleted(true);
         save(entity);
     }
 
-    default void deleteById(I id) {
+    default void deleteById(@NonNull I id) {
         Optional<T> entity = findById(id);
         entity.ifPresent(this::delete);
     }
 
     @Override
-    default void deleteAll(Iterable<? extends T> entities) {
+    default void deleteAll(@NonNull Iterable<? extends T> entities) {
         entities.forEach(this::delete);
     }
 }

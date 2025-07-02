@@ -9,6 +9,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -36,7 +38,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
         final String userEmail;
 
@@ -45,28 +47,28 @@ public class JWTAuthFilter extends OncePerRequestFilter {
             return;
         }
 
-          try {
-              if (jwtUtil.getPasswordRecoveryId(authHeader) == null) {
-                  if (sessionService.isTokenRevoked(jwtUtil.getToken(authHeader))) {
-                      AuthenticationException authException = new AuthenticationServiceException("Token revoked");
-                      customAuthenticationEntryPoint.commence(request, response, authException);
-                      return;
-                  }
-              }
-              userEmail = jwtUtil.extractUsername(authHeader);
-              if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                  UserDetails userDetails = credentialService.loadUserByUsername(userEmail);
-                  if (jwtUtil.isTokenValid(authHeader, userDetails)) {
-                      UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                      authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                      SecurityContextHolder.getContext().setAuthentication(authToken);
-                  }
-              }
-          } catch (ExpiredJwtException e) {
-              AuthenticationException authException = new AuthenticationServiceException("Expired JWT token", e);
-              customAuthenticationEntryPoint.commence(request, response, authException);
-              return;
-          }
+        try {
+            if (jwtUtil.getPasswordRecoveryId(authHeader) == null) {
+                if (sessionService.isTokenRevoked(jwtUtil.getToken(authHeader))) {
+                    AuthenticationException authException = new AuthenticationServiceException("Token revoked");
+                    customAuthenticationEntryPoint.commence(request, response, authException);
+                    return;
+                }
+            }
+            userEmail = jwtUtil.extractUsername(authHeader);
+            if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = credentialService.loadUserByUsername(userEmail);
+                if (jwtUtil.isTokenValid(authHeader, userDetails)) {
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                }
+            }
+        } catch (ExpiredJwtException e) {
+        AuthenticationException authException = new AuthenticationServiceException("Expired JWT token", e);
+        customAuthenticationEntryPoint.commence(request, response, authException);
+        return;
+        }
 
         filterChain.doFilter(request, response);
     }

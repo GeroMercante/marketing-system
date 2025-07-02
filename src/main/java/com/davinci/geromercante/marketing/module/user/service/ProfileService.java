@@ -8,10 +8,10 @@ import com.davinci.geromercante.marketing.module.user.model.dto.response.Profile
 import java.util.List;
 
 public interface ProfileService {
-    List<ProfileDetailDTO> getMeProfiles(Long clientId);
+    List<ProfileDetailDTO> getMeProfiles();
     List<ProfilePermissionDTO> getPermissions();
     ProfileDetailDTO getProfile(Long id) throws MarketingException;
-    ProfileDetailDTO createProfile(ProfileDTO dto, Long clientId) throws MarketingException;
-    ProfileDetailDTO updateProfile(Long profileId, ProfileDTO dto, Long clientId) throws MarketingException;
+    ProfileDetailDTO createProfile(ProfileDTO dto) throws MarketingException;
+    ProfileDetailDTO updateProfile(Long profileId, ProfileDTO dto) throws MarketingException;
     void deleteProfile(Long profileId) throws MarketingException;
 }
