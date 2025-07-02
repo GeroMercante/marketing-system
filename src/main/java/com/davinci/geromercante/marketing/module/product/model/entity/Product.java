@@ -1,4 +1,4 @@
-package com.davinci.geromercante.marketing.module.datasource.model.entity;
+package com.davinci.geromercante.marketing.module.product.model.entity;
 
 import com.davinci.geromercante.marketing.common.model.entity.BaseEntity;
 import jakarta.persistence.*;
@@ -33,7 +33,10 @@ public class Product extends BaseEntity {
     private String category;
 
     @Column(name = "product_condition", length = 50)
-    private String condition;    
+    private String condition;
+
+    @Column(name = "active", nullable = false)
+    private Boolean active;
 
     @Column(name = "manufacturer", length = 100)
     private String manufacturer;
